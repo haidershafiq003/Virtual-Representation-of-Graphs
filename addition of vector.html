@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful 3D Vector Addition with Black Background</title>
+    <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.17.0/plotly.min.js"></script>
+</head>
+
+<body style="background-color: black; color: white;">
+    <h1 style="text-align: center; color: white;"> Vector Addition Visualization</h1>
+    <div id="plot" style="height: 600px;"></div>
+    <script>
+        // Create the data for the 3D vector plot (addition from origin to (10, 5))
+        var trace1 = {
+            type: 'scatter3d',
+            mode: 'lines+markers',
+            x: [0, 10],  // x-coordinates of vector
+            y: [0, 5],   // y-coordinates of vector
+            z: [0, 0],   // z-coordinates (keeping z as 0 for XY-plane)
+            marker: {
+                color: [0, 1],  // Color gradient from 0 to 1 (start to end of vector)
+                size: 10,
+                colorscale: 'Viridis',  // Apply the colorful 'Viridis' colorscale
+                showscale: true  // Show the color scale on the side
+            },
+            line: {
+                color: 'rgba(255, 255, 0, 0.8)',  // Yellow line with transparency
+                width: 6
+            }
+        };
+
+        // Layout settings with black background
+        var layout = {
+            scene: {
+                xaxis: { title: 'X Axis', gridcolor: 'gray' },
+                yaxis: { title: 'Y Axis', gridcolor: 'gray' },
+                zaxis: { title: 'Z Axis', gridcolor: 'gray' }
+            },
+            title: 'Vector (10, 5) Addition in 3D (XY-plane)',
+            showlegend: false,
+            paper_bgcolor: 'black',  // Black background color for the plot area
+            plot_bgcolor: 'black',   // Black background color for the entire plot
+            font: { color: 'white' },  // White font color for text and labels
+            titlefont: { color: 'white' }, // White font color for the title
+            hoverlabel: { font: { color: 'white' } } // White font for hover text
+        };
+
+        // Create the plot with data and layout
+        Plotly.newPlot('plot', [trace1], layout);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross Product Visualization in 3D with Black Background</title>
+    <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.17.0/plotly.min.js"></script>
+</head>
+
+<body style="background-color: black; color: white;">
+    <h1 style="text-align: center; color: white;">Cross Product Visualization of Vectors</h1>
+    <div id="plot" style="height: 600px;"></div>
+    <script>
+        // Define the vectors a, b, and the resulting cross product c
+        var trace1 = {
+            type: 'scatter3d',
+            mode: 'lines+markers',
+            x: [0, 1],  // x-coordinates for vector a (from origin to (1, 0, 0))
+            y: [0, 2],  // y-coordinates for vector a (from origin to (0, 2, 0))
+            z: [0, 3],  // z-coordinates for vector a (from origin to (0, 0, 3))
+            marker: {
+                color: [0, 1],  // Color gradient from 0 to 1 (start to end of vector)
+                size: 10,
+                colorscale: 'Jet',  // Apply the colorful 'Jet' colorscale
+                showscale: true  // Show the color scale on the side
+            },
+            line: {
+                color: 'rgba(0, 255, 255, 0.8)',  // Cyan color for vector a
+                width: 6
+            },
+            name: 'Vector A (1, 2, 3)'
+        };
+
+        var trace2 = {
+            type: 'scatter3d',
+            mode: 'lines+markers',
+            x: [0, 4],  // x-coordinates for vector b (from origin to (4, 0, 0))
+            y: [0, 5],  // y-coordinates for vector b (from origin to (0, 5, 0))
+            z: [0, 6],  // z-coordinates for vector b (from origin to (0, 0, 6))
+            marker: {
+                color: [0, 1],  // Color gradient from 0 to 1 (start to end of vector)
+                size: 10,
+                colorscale: 'Viridis',  // Apply the colorful 'Viridis' colorscale
+                showscale: true  // Show the color scale on the side
+            },
+            line: {
+                color: 'rgba(255, 165, 0, 0.8)',  // Orange color for vector b
+                width: 6
+            },
+            name: 'Vector B (4, 5, 6)'
+        };
+
+        // Cross product result (as vector c)
+        var trace3 = {
+            type: 'scatter3d',
+            mode: 'lines+markers',
+            x: [0, -3],  // x-coordinates for cross product c (-3, 0, 0)
+            y: [0, 6],   // y-coordinates for cross product c (0, 6, 0)
+            z: [0, -3],  // z-coordinates for cross product c (0, 0, -3)
+            marker: {
+                color: [0, 1],  // Color gradient from 0 to 1 (start to end of vector)
+                size: 10,
+                colorscale: 'Plasma',  // Apply the colorful 'Plasma' colorscale
+                showscale: true  // Show the color scale on the side
+            },
+            line: {
+                color: 'rgba(255, 0, 255, 0.8)',  // Purple color for cross product c
+                width: 6
+            },
+            name: 'Cross Product (c = -3, 6, -3)'
+        };
+
+        // Layout settings with black background
+        var layout = {
+            scene: {
+                xaxis: { title: 'X Axis', gridcolor: 'gray' },
+                yaxis: { title: 'Y Axis', gridcolor: 'gray' },
+                zaxis: { title: 'Z Axis', gridcolor: 'gray' }
+            },
+            title: 'Cross Product Visualization of Vectors A (2, 4) and B(1, 5) = 6',
+            showlegend: true,
+            paper_bgcolor: 'black',  // Black background color for the plot area
+            plot_bgcolor: 'black',   // Black background color for the entire plot
+            font: { color: 'white' },  // White font color for text and labels
+            titlefont: { color: 'white' }, // White font color for the title
+            hoverlabel: { font: { color: 'white' } } // White font for hover text
+        };
+
+        // Create the plot with data and layout
+        Plotly.newPlot('plot', [trace1, trace2, trace3], layout);
+    </script>
+</body>
+
+</html>

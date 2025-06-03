@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Vector of (6, 3) in 3D with Black Background</title>
+    <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.17.0/plotly.min.js"></script>
+</head>
+
+<body style="background-color: black; color: white;">
+    <h1 style="text-align: center; color: white;">Unit Vector Visualization</h1>
+    <div id="plot" style="height: 600px;"></div>
+    <script>
+        // Define the original vector v = (6, 3)
+        var originalVector = {
+            x: [0, 6],
+            y: [0, 3],
+            z: [0, 0], // Keeping z as 0 for the XY-plane
+            line: {
+                color: 'rgba(255, 165, 0, 0.8)',  // Orange color for the original vector
+                width: 6
+            },
+            name: 'Original Vector (6, 3)'
+        };
+
+        // Define the unit vector v_hat = (0.894, 0.447)
+        var unitVector = {
+            x: [0, 0.894],
+            y: [0, 0.447],
+            z: [0, 0], // Keeping z as 0 for the XY-plane
+            line: {
+                color: 'rgba(0, 255, 255, 0.8)',  // Cyan color for the unit vector
+                width: 6
+            },
+            name: 'Unit Vector (0.894, 0.447)'
+        };
+
+        // Layout settings with black background
+        var layout = {
+            scene: {
+                xaxis: { title: 'X Axis', gridcolor: 'gray' },
+                yaxis: { title: 'Y Axis', gridcolor: 'gray' },
+                zaxis: { title: 'Z Axis', gridcolor: 'gray' }
+            },
+            title: 'Unit Vector of (6, 3)',
+            showlegend: true,
+            paper_bgcolor: 'black',  // Black background color for the plot area
+            plot_bgcolor: 'black',   // Black background color for the entire plot
+            font: { color: 'white' },  // White font color for text and labels
+            titlefont: { color: 'white' }, // White font color for the title
+            hoverlabel: { font: { color: 'white' } } // White font for hover text
+        };
+
+        // Create the plot with data and layout
+        Plotly.newPlot('plot', [originalVector, unitVector], layout);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magnitude of Vector (7, -4) in 3D with Black Background</title>
+    <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.17.0/plotly.min.js"></script>
+</head>
+
+<body style="background-color: black; color: white;">
+    <h1 style="text-align: center; color: white;">Magnitude Visualization of Vector (7, -4)</h1>
+    <div id="plot" style="height: 600px;"></div>
+    <script>
+        // Define the vector v = (7, -4)
+        var trace1 = {
+            type: 'scatter3d',
+            mode: 'lines+markers',
+            x: [0, 7],  // x-coordinates for vector v (from origin to (7, 0, 0))
+            y: [0, -4], // y-coordinates for vector v (from origin to (0, -4, 0))
+            z: [0, 0],  // z-coordinates (since it's on the XY-plane)
+            marker: {
+                color: [0, 1],  // Color gradient from 0 to 1 (start to end of vector)
+                size: 10,
+                colorscale: 'Jet',  // Apply the colorful 'Jet' colorscale
+                showscale: true  // Show the color scale on the side
+            },
+            line: {
+                color: 'rgba(0, 255, 255, 0.8)',  // Cyan color for vector
+                width: 6
+            },
+            name: 'Vector (7, -4)'  // Label for the vector
+        };
+
+        // Layout settings with black background
+        var layout = {
+            scene: {
+                xaxis: { title: 'X Axis', gridcolor: 'gray' },
+                yaxis: { title: 'Y Axis', gridcolor: 'gray' },
+                zaxis: { title: 'Z Axis', gridcolor: 'gray' }
+            },
+            title: 'Magnitude of Vector (7, -4)',
+            showlegend: true,
+            paper_bgcolor: 'black',  // Black background color for the plot area
+            plot_bgcolor: 'black',   // Black background color for the entire plot
+            font: { color: 'white' },  // White font color for text and labels
+            titlefont: { color: 'white' }, // White font color for the title
+            hoverlabel: { font: { color: 'white' } } // White font for hover text
+        };
+
+        // Create the plot with data and layout
+        Plotly.newPlot('plot', [trace1], layout);
+    </script>
+</body>
+
+</html>
